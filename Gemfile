@@ -25,6 +25,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'hirb'
 gem 'devise-bootstrap-views', '~> 1.1'
 gem 'iex-ruby-client', '~> 1.4'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
