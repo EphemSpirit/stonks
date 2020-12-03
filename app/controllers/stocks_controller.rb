@@ -4,14 +4,20 @@ class StocksController < ApplicationController
     if !params[:stock].empty?
       @stock = Stock.find_price(params[:stock])
       if @stock
-        render 'users/my_portfolio'
+        respond_to do |format|
+          format.js { render partial: 'shared/results' }
+        end
       else
-        flash[:alert] = "Please enter a valid symbol"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:alert] = "Please enter a valid symbol"
+          format.js { render partial: 'shared/results' }
+        end
       end
     else
-      flash[:alert] = "Please enter a stock symbol"
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:alert] = "Please enter a symbol"
+        format.js { render partial: 'shared/results' }
+      end
     end
   end
 
