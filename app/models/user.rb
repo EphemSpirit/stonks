@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   def can_track?(ticker)
     under_stock_limit? && !stock_already_tracked?(ticker)
@@ -20,4 +22,10 @@ class User < ApplicationRecord
     return false unless stock
     stocks.where(id: stock.id).exists?
   end
+
+  def full_name
+    return "#{first_name} #{last_name}" if first_name || last_name
+    "Anonymous"
+  end
+
 end
