@@ -1,4 +1,4 @@
 <h1>Welcome to the Finance Tracker!</h1>
 <% if user_signed_in? %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Are You Sure?" } %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% end %>
